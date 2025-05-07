@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atadan Toruna | Kuleönü Ortaokulu</title>
+    <style>
+        /* TEMEL STİLLER */
+        :root {
+            --yesil: #2a5a1a;
+            --acik-yesil: #4c9a2a;
+            --sari: #e6b422;
+            --bej: #f9f7f0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bej);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* NAVİGASYON */
+        nav {
+            background-color: var(--yesil);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        nav li {
+            margin: 0 15px;
+            position: relative;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        nav a:hover {
+            background-color: var(--acik-yesil);
+        }
+        
+        /* BAŞLIK ALANI */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+        h1 {
+            font-size: 2.8rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-top: 25px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: rgba(76, 154, 42, 0.9);
+            border-radius: 30px;
+        }
+        
+        /* PROJE KARTLARI */
+        .proje-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 40px;
+        }
+        .proje-karti {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .proje-karti:hover {
+            transform: translateY(-10px);
+        }
+        .proje-baslik {
+            background-color: var(--acik-yesil);
+            color: white;
+            padding: 15px;
+            margin: 0;
+            font-size: 1.3rem;
+        }
+        .proje-icerik {
+            padding: 20px;
+        }
+        .proje-icerik ul {
+            padding-left: 20px;
+        }
+        .proje-icerik li {
+            margin-bottom: 8px;
+        }
+        
+        /* GALERİ */
+        .galeri {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+        .galeri img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .galeri img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* DESTEKLEYEN KURUMLAR */
+        .destekleyen-kurumlar {
+            background-color: var(--bej);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+        .logo-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .logo-item {
+            flex: 0 1 200px;
+            text-align: center;
+        }
+        .logo-item img {
+            max-width: 100%;
+            height: 80px;
+            object-fit: contain;
+            filter: grayscale(100%) opacity(80%);
+            transition: all 0.3s;
+        }
+        .logo-item img:hover {
+            filter: grayscale(0%) opacity(100%);
+            transform: scale(1.05);
+        }
+        .logo-item p {
+            margin-top: 10px;
+            font-weight: 500;
+            color: var(--yesil);
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: var(--yesil);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--sari);
+        }
+        
+        /* MOBİL UYUMLULUK */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav li {
+                margin: 5px 0;
+            }
+            .proje-grid {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            .logo-grid {
+                gap: 20px;
+            }
+            .logo-item {
+                flex: 0 1 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVİGASYON -->
+    <nav>
+        <ul>
+            <li><a href="#ana-sayfa">Ana Sayfa</a></li>
+            <li><a href="#projeler">Projelerimiz</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#iletisim">İletişim</a></li>
+        </ul>
+    </nav>
+    
+    <!-- BAŞLIK -->
+    <header id="ana-sayfa">
+        <h1>🌱 Atadan Toruna, Tohumdan Geleceğe</h1>
+        <p>Geçmişin Bilgeliğiyle Geleceği Yeşertiyoruz!</p>
+        <div class="logo">Kuleönü Ortaokulu</div>
+    </header>
+    
+    <!-- PROJELER -->
+    <section id="projeler" class="proje-grid">
+        <!-- ATA TOHUMU KÜTÜPHANESİ -->
+        <a href="ata-tohumu-kutuphanesi.html" class="proje-karti">
+            <h3 class="proje-baslik">🌱→🌳 Ata Tohumu Kütüphanesi</h3>
+            <div class="proje-icerik">
+                <p>Nesiller boyu saklanan tohumlarımızı kayıt altına alıyor, geleceğe taşıyoruz.</p>
+                <ul>
+                    <li>30+ yerel tohum çeşidi</li>
+                    <li>Tohum takas etkinlikleri</li>
+                </ul>
+            </div>
+        </a>
+        
+        <!-- ATA-TORUN BULUŞMALARI -->
+        <a href="ata-torun-bulusmalari.html" class="proje-karti">
+            <h3 class="proje-baslik">👵👶 Ata-Torun Buluşmaları</h3>
+            <div class="proje-icerik">
+                <p>Büyüklerimizin tarım bilgeliğini yeni nesille buluşturuyoruz.</p>
+                <ul>
+                    <li>Atalarla söyleşiler</li>
+                    <li>Uygulamalı tarım atölyeleri</li>
+                    <li>Nesiller arası diyalog</li>
+                </ul>
+            </div>
+        </a>
+        
+        <!-- GERİ DÖNÜŞÜM -->
+        <a href="geri-donusum.html" class="proje-karti">
+            <h3 class="proje-baslik">♻️ Geri Dönüşüm ve Sıfır Atık</h3>
+            <div class="proje-icerik">
+                <ul>
+                    <li>Pet şişelerden kümes yapımı</li>
+                    <li>Plastik borulardan sera yapımı</li>
+                    <li>Geri dönüşümden sanat sergisi</li>
+                    <li>Sürdürülebilir doğa dostu enstrümanlar</li>
+                </ul>
+            </div>
+        </a>
+        
+        <!-- ENERJİ MUHAFIZLARI -->
+        <a href="enerji-muhafizlari.html" class="proje-karti">
+            <h3 class="proje-baslik">⚡ Enerji Muhafızları</h3>
+            <div class="proje-icerik">
+                <p>Okulumuzda enerji verimliliği projeleri geliştiriyoruz.</p>
+                <ul>
+                    <li>Enerji tasarrufu kampanyası</li>
+                </ul>
+            </div>
+        </a>
+        
+        <!-- DOĞA ELÇİLERİ -->
+        <a href="doga-elcileri.html" class="proje-karti">
+            <h3 class="proje-baslik">🌿 Doğa Elçileri</h3>
+            <div class="proje-icerik">
+                <ul>
+                    <li>Kompost üretimi</li>
+                    <li>Doğa gözlemleri</li>
+                    <li>Topraksız tarım uygulamaları</li>
+                    <li>Geri dönüşüm yarışması</li>
+                </ul>
+            </div>
+        </a>
+        
+        <!-- GERİ DÖNÜŞÜM KÜTÜPHANESİ -->
+        <a href="kutuphane.html" class="proje-karti">
+            <h3 class="proje-baslik">📚 Geri Dönüşüm Kütüphanesi</h3>
+            <div class="proje-icerik">
+                <p>Atıkları dönüştürerek hem doğayı koruyor hem de kütüphanemizle topluma değer katıyoruz.</p>
+                <ul>
+                    <li>Geri dönüşüm malzemelerinden okul kütüphanesi yapımı</li>
+                </ul>
+            </div>
+        </a>
+    </section>
+    
+    <!-- GALERİ -->
+    <section id="galeri">
+        <h2 style="text-align: center; color: var(--acik-yesil); margin-top: 40px;">Proje Fotoğrafları</h2>
+        <div class="galeri">
+            <img src="images/tohum.jpg" alt="Tohum ekme">
+            <img src="images/kompost.jpg" alt="Kompost hazırlama">
+            <img src="images/sera.jpg" alt="Sera kurulumu">
+            <img src="images/kumes.jpg" alt="Kümes yapımı">
+            <img src="images/sanat.jpg" alt="Geri dönüşümden sanata">
+            <img src="images/fide.jpg" alt="Fide dikimi">
+
+        </div>
+    </section>
+    
+    <!-- İLETİŞİM -->
+    <section id="iletisim" style="max-width: 600px; margin: 40px auto; padding: 20px;">
+        <h2 style="text-align: center; color: var(--acik-yesil);">Bize Katılın!</h2>
+        <form style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            <input type="text" placeholder="Adınız Soyadınız" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;">
+            <input type="email" placeholder="E-posta Adresiniz" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;">
+            <select style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;">
+                <option>Nasıl destek olmak istersiniz?</option>
+                <option>Tohum bağışı yapmak istiyorum</option>
+                <option>Gönüllü olarak çalışmak istiyorum</option>
+                <option>Okulumuza ziyarete gelmek istiyorum</option>
+            </select>
+            <textarea placeholder="Mesajınız..." rows="4" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+            <button type="submit" style="width: 100%; padding: 12px; background-color: var(--acik-yesil); color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Gönder</button>
+        </form>
+    </section>
+
+    <!-- DESTEKLEYEN KURUMLAR -->
+    <section class="destekleyen-kurumlar">
+        <h2 style="color: var(--yesil); margin-bottom: 30px;">Destekleyen Kurumlar</h2>
+        <div class="logo-grid">
+            <div class="logo-item">
+                <a href="https://www.isparta.bel.tr" target="_blank">
+                <img src="images/logo1.jpeg" alt="Isparta Belediyesi">
+                <p>Isparta Belediyesi</p>
+            </div>
+            <div class="logo-item">
+                <a href="https://www.kuleonu.bel.tr" target="_blank">
+                <img src="images/logo2.png" alt="Kuleönü Belediyesi">
+                <p>Kuleönü Belediyesi</p>
+            </div>
+            <div class="logo-item">
+                <a href="https://www.tema.org.tr" target="_blank">
+                <img src="images/logo3.jpeg" alt="TEMA Vakfı">
+                <p>TEMA Vakfı</p>
+            </div>
+            <div class="logo-item">
+                <a href="https://www.kizilay.org.tr" target="_blank">
+                <img src="images/logo4.jpg" alt="Kızılay">
+                <p>Kızılay</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer>
+        <p>📢 Proje Sloganı: <em>"Atadan öğren, toruna aktar… Tohum yeşersin, gelecek şenlensin!"</em></p>
+        <div class="social-links">
+            <a href="#">📧</a>
+            <a href="#">📱</a>
+            <a href="#">📷</a>
+        </div>
+        <p>© 2025 Kuleönü Ortaokulu - Tüm Hakları Saklıdır</p>
+        <p style="margin-top: 15px; font-size: 0.9rem;">🌍 Bir tohum, bir neslin hatırasıdır</p>
+    </footer>
+</body>
+</html>

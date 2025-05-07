@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doğa Elçileri | Kuleönü Ortaokulu</title>
+    <style>
+        :root {
+            --yesil: #2a5a1a;
+            --acik-yesil: #4c9a2a;
+            --sari: #e6b422;
+            --bej: #f9f7f0;
+            --mavi: #1a5a7a;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bej);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* NAVİGASYON */
+        nav {
+            background-color: var(--yesil);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        nav li {
+            margin: 0 15px;
+            position: relative;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        nav a:hover {
+            background-color: var(--acik-yesil);
+        }
+        
+        /* BAŞLIK ALANI */
+        .header-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 30px;
+        }
+        .content-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: var(--yesil);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: var(--yesil);
+            border-bottom: 2px solid var(--acik-yesil);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        
+        /* PROJE KARTLARI */
+        .proje-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .proje-karti {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-top: 5px solid var(--acik-yesil);
+        }
+        .proje-karti:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .proje-baslik {
+            background-color: var(--acik-yesil);
+            color: white;
+            padding: 15px;
+            margin: 0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+        .proje-baslik span {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        .proje-icerik {
+            padding: 20px;
+        }
+        .sorumlu {
+            background-color: var(--bej);
+            padding: 10px 15px;
+            border-left: 4px solid var(--yesil);
+            margin-top: 15px;
+            font-weight: 500;
+        }
+        
+        /* GALERİ */
+        .galeri {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .galeri img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .galeri img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: var(--yesil);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-image {
+                height: 250px;
+            }
+            .proje-grid {
+                grid-template-columns: 1fr;
+            }
+            .proje-baslik {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVİGASYON -->
+    <nav>
+        <ul>
+            <li><a href="index.html#ana-sayfa">Ana Sayfa</a></li>
+            <li><a href="index.html#projeler">Projelerimiz</a></li>
+            <li><a href="index.html#galeri">Galeri</a></li>
+            <li><a href="index.html#iletisim">İletişim</a></li>
+        </ul>
+    </nav>
+    
+    <!-- BAŞLIK RESMİ -->
+    <img src="images/doga-elcileri-banner.jpg" alt="Doğa Elçileri Projesi" class="header-image">
+    
+    <!-- İÇERİK BÖLÜMÜ -->
+    <div class="content-section">
+        <h1>🌿 Doğa Elçileri</h1>
+        
+        <p>Doğa Elçileri projemizle öğrencilerimize çevre bilinci kazandırmayı, doğayı koruma ve sürdürülebilir yaşam becerileri geliştirmeyi hedefliyoruz. Her ay farklı etkinliklerle doğayla iç içe bir eğitim sunuyoruz.</p>
+        
+        <h2>Proje Etkinliklerimiz</h2>
+        
+        <div class="proje-grid">
+            <!-- Proje 1 -->
+            <div class="proje-karti">
+                <h3 class="proje-baslik"><span>♻️</span> Kompost Üretimi</h3>
+                <div class="proje-icerik">
+                    <p>Okulumuzdaki organik atıkları değerlendirerek kompost gübre üretiyoruz. Bu gübreleri okul bahçemizde ve seramızda kullanıyoruz.</p>
+                    <div class="sorumlu">Sorumlu: Şerife DUMAN</div>
+                </div>
+            </div>
+            
+            <!-- Proje 2 -->
+            <div class="proje-karti">
+                <h3 class="proje-baslik"><span>🔍</span> Doğa Gözlemleri</h3>
+                <div class="proje-icerik">
+                    <p>Aylık doğa yürüyüşleri ve gözlem etkinlikleri düzenleyerek öğrencilerimizin doğayı tanımasını sağlıyoruz.</p>
+                    <div class="sorumlu">Sorumlu: Murat GÜVEN - Seda ÇIRAY SARI</div>
+                </div>
+            </div>
+            
+            <!-- Proje 3 -->
+            <div class="proje-karti">
+                <h3 class="proje-baslik"><span>🌱</span> Topraksız Tarım Uygulamaları</h3>
+                <div class="proje-icerik">
+                    <p>Hidroponik sistemler kurarak topraksız tarım tekniklerini öğretiyoruz. Öğrencilerimizle birlikte marul, fesleğen gibi bitkiler yetiştiriyoruz.</p>
+                    <div class="sorumlu">Sorumlu: Nurullah ÖZGÖKMAN</div>
+                </div>
+            </div>
+            
+            <!-- Proje 4 -->
+            <div class="proje-karti">
+                <h3 class="proje-baslik"><span>🏆</span> Geri Dönüşüm Yarışması</h3>
+                <div class="proje-icerik">
+                    <p>Sınıflar arası geri dönüşüm yarışması düzenleyerek atık malzemelerin değerlendirilmesini teşvik ediyoruz.</p>
+                    <div class="sorumlu">Sorumlu: Erdem BÜYÜKGÖKOĞLAN</div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Etkinlik Görselleri</h2>
+        <div class="galeri">
+            <img src="images/kompost-uretim.jpg" alt="Kompost Üretimi">
+            <img src="images/doga-gozlem.jpg" alt="Doğa Gözlemleri">
+            <img src="images/topraksiz-tarim.jpg" alt="Topraksız Tarım">
+            <img src="images/geri-donusum-yarisma.jpg" alt="Geri Dönüşüm Yarışması">
+            <img src="images/doga-etkinlik.jpg" alt="Doğa Etkinliği">
+            <img src="images/ogrenci-calisma.jpg" alt="Öğrenci Çalışmaları">
+        </div>
+        
+        <h2>Katılım ve İşbirliği</h2>
+        <p>Doğa Elçileri projemize destek olmak isteyen velilerimiz ve gönüllüler, etkinliklerimize katılarak veya malzeme desteği sağlayarak bize katkıda bulunabilirler. Detaylı bilgi için iletişim bölümünden bize ulaşabilirsiniz.</p>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer>
+        <p>📢 Proje Sloganı: <em>"Doğayı seviyor, geleceği koruyoruz!"</em></p>
+        <p>© 2023 Kuleönü Ortaokulu - Tüm Hakları Saklıdır</p>
+    </footer>
+</body>
+</html>

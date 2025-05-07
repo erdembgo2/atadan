@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ata-Torun Buluşmaları | Kuleönü Ortaokulu</title>
+    <style>
+        :root {
+            --yesil: #2a5a1a;
+            --acik-yesil: #4c9a2a;
+            --sari: #e6b422;
+            --bej: #f9f7f0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bej);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* NAVİGASYON */
+        nav {
+            background-color: var(--yesil);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        nav li {
+            margin: 0 15px;
+            position: relative;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        nav a:hover {
+            background-color: var(--acik-yesil);
+        }
+        
+        /* İÇERİK STİLLERİ */
+        .header-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 30px;
+        }
+        .content-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: var(--yesil);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: var(--yesil);
+            border-bottom: 2px solid var(--acik-yesil);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        
+        /* BULUŞMA KARTLARI */
+        .bulusma-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .bulusma-karti {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .bulusma-karti:hover {
+            transform: translateY(-5px);
+        }
+        .bulusma-baslik {
+            background-color: var(--acik-yesil);
+            color: white;
+            padding: 15px;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        .bulusma-icerik {
+            padding: 20px;
+        }
+        .katilan {
+            background-color: var(--bej);
+            padding: 10px 15px;
+            border-left: 4px solid var(--yesil);
+            margin-top: 15px;
+            font-style: italic;
+        }
+        
+        /* MODAL STİLLERİ */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 200;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            overflow: auto;
+        }
+        .modal-content {
+            background-color: var(--bej);
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+        }
+        .modal-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+        .modal-title {
+            color: var(--yesil);
+            margin-top: 20px;
+        }
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: var(--yesil);
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: var(--yesil);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-image {
+                height: 250px;
+            }
+            .bulusma-grid {
+                grid-template-columns: 1fr;
+            }
+            .modal-content {
+                margin: 10% auto;
+                width: 95%;
+            }
+            .modal-image {
+                max-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVİGASYON -->
+    <nav>
+        <ul>
+            <li><a href="index.html#ana-sayfa">Ana Sayfa</a></li>
+            <li><a href="index.html#projeler">Projelerimiz</a></li>
+            <li><a href="index.html#galeri">Galeri</a></li>
+            <li><a href="index.html#iletisim">İletişim</a></li>
+        </ul>
+    </nav>
+    
+    <!-- BAŞLIK RESMİ -->
+    <img src="images/ata2.jpg" alt="Ata-Torun Buluşmaları" class="header-image">
+    
+    <!-- İÇERİK BÖLÜMÜ -->
+    <div class="content-section">
+        <h1>Ata-Torun Buluşmaları</h1>
+        
+        <p>Büyüklerimizin tarım bilgeliğini yeni nesille buluşturduğumuz bu etkinliklerde, unutulmaya yüz tutmuş geleneksel tarım tekniklerini öğreniyor ve uyguluyoruz. Düzenlediğimiz buluşmalarda farklı konuları ele alıyoruz.</p>
+        
+        <h2>Buluşma Konularımız</h2>
+        
+        <div class="bulusma-grid">
+            <!-- Buluşma 1 -->
+            <div class="bulusma-karti" onclick="openModal('Toprakla Tanışma', 'images/etkinlik1.jpg', 'Farklı toprak türleri, toprak hazırlığı, toprak analizi ve iyileştirilmesi konularını ele aldık.', 'Ramazan TUNCA')">
+                <h3 class="bulusma-baslik">Toprakla Tanışma</h3>
+                <div class="bulusma-icerik">
+                    <p>Farklı toprak türleri, toprak hazırlığı, toprak analizi ve iyileştirilmesi konularını ele aldık.</p>
+                    <div class="katilan">Katılan: Ramazan TUNCA</div>
+                </div>
+            </div>
+            
+            <!-- Buluşma 2 -->
+            <div class="bulusma-karti" onclick="openModal('Bahçe Planlaması ve Tasarımı', 'images/etkinlik2.jpg', 'Sebze bahçesi, çiçek bahçesi, tıbbi bitki bahçesi gibi farklı bahçe tipleri; güneşlenme, sulama, erişim gibi faktörlere göre bahçe planı oluşturma.', 'Ünal TUNCA')">
+                <h3 class="bulusma-baslik">Bahçe Planlaması ve Tasarımı</h3>
+                <div class="bulusma-icerik">
+                    <p>Sebze bahçesi, çiçek bahçesi, tıbbi bitki bahçesi gibi farklı bahçe tipleri; güneşlenme, sulama, erişim gibi faktörlere göre bahçe planı oluşturma.</p>
+                    <div class="katilan">Katılan: Ünal TUNCA</div>
+                </div>
+            </div>
+            
+            <!-- Buluşma 3 -->
+            <div class="bulusma-karti" onclick="openModal('Fide Yetiştirme ve Şaşırtma', 'images/etkinlik3.jpg', 'Tohumdan fide yetiştirme teknikleri, fide bakımı, fide şaşırtma zamanı ve yöntemleri.', 'Ünal TUNCA')">
+                <h3 class="bulusma-baslik">Fide Yetiştirme ve Şaşırtma</h3>
+                <div class="bulusma-icerik">
+                    <p>Tohumdan fide yetiştirme teknikleri, fide bakımı, fide şaşırtma zamanı ve yöntemleri.</p>
+                    <div class="katilan">Katılan: Ünal TUNCA</div>
+                </div>
+            </div>
+            
+            <!-- Buluşma 4 -->
+            <div class="bulusma-karti" onclick="openModal('Sulama Sistemleri', 'images/etkinlik4.jpg', 'Farklı sulama yöntemleri (damla sulama, yağmurlama, karık sulama vb.), su tasarrufu, sulama zamanlaması.', 'Osman ERDOĞAN')">
+                <h3 class="bulusma-baslik">Sulama Sistemleri</h3>
+                <div class="bulusma-icerik">
+                    <p>Farklı sulama yöntemleri (damla sulama, yağmurlama, karık sulama vb.), su tasarrufu, sulama zamanlaması.</p>
+                    <div class="katilan">Katılan: Osman ERDOĞAN</div>
+                </div>
+            </div>
+            
+            <!-- Buluşma 5 -->
+            <div class="bulusma-karti" onclick="openModal('Gübreleme ve Toprak Besleme', 'images/etkinlik5.jpg', 'Organik ve inorganik gübreler, kompost yapımı, yeşil gübreleme, toprak sağlığını koruma.', 'Şerife DUMAN')">
+                <h3 class="bulusma-baslik">Gübreleme ve Toprak Besleme</h3>
+                <div class="bulusma-icerik">
+                    <p>Organik ve inorganik gübreler, kompost yapımı, yeşil gübreleme, toprak sağlığını koruma.</p>
+                    <div class="katilan">Katılan: Şerife DUMAN</div>
+                </div>
+            </div>
+            
+            <!-- Buluşma 6 -->
+            <div class="bulusma-karti" onclick="openModal('Bahçe Zararlıları ve Hastalıkları ile Mücadele', 'images/etkinlik6.jpg', 'Doğal yöntemlerle zararlı ve hastalık kontrolü, biyolojik mücadele, bitki koruma.', 'Havva ERDOĞMUŞ')">
+                <h3 class="bulusma-baslik">Bahçe Zararlıları ve Hastalıkları ile Mücadele</h3>
+                <div class="bulusma-icerik">
+                    <p>Doğal yöntemlerle zararlı ve hastalık kontrolü, biyolojik mücadele, bitki koruma.</p>
+                    <div class="katilan">Katılan: Havva ERDOĞMUŞ</div>
+                </div>
+            </div>
+            
+            <!-- Buluşma 7 -->
+            <div class="bulusma-karti" onclick="openModal('Dikey Bahçecilik ve Küçük Alan Tarımı', 'images/etkinlik7.jpg', 'Balkon ve teraslarda sebze yetiştirme, dikey bahçe sistemleri.', 'Ömer Faruk TAVUKCU')">
+                <h3 class="bulusma-baslik">Dikey Bahçecilik ve Küçük Alan Tarımı</h3>
+                <div class="bulusma-icerik">
+                    <p>Balkon ve teraslarda sebze yetiştirme, dikey bahçe sistemleri.</p>
+                    <div class="katilan">Katılan: Ömer Faruk TAVUKCU</div>
+                </div>
+            </div>
+            
+            <!-- Buluşma 8 -->
+            <div class="bulusma-karti" onclick="openModal('Ata Tohumu Toplama ve Saklama', 'images/etkinlik8.jpg', 'Tohum olgunlaşma zamanı, tohum toplama yöntemleri, tohum kurutma ve saklama koşulları.', 'Cenk KESKİN')">
+                <h3 class="bulusma-baslik">Ata Tohumu Toplama ve Saklama</h3>
+                <div class="bulusma-icerik">
+                    <p>Tohum olgunlaşma zamanı, tohum toplama yöntemleri, tohum kurutma ve saklama koşulları.</p>
+                    <div class="katilan">Katılan: Cenk KESKİN</div>
+                </div>
+            </div>
+            
+            <!-- Buluşma 9 -->
+            <div class="bulusma-karti" onclick="openModal('Kümes Yapım Atölyesi', 'images/etkinlik9.jpg', 'Geri dönüşümlü malzemelerden kümes yapımı.', 'Eyüp KAHRAMAN')">
+                <h3 class="bulusma-baslik">Kümes Yapım Atölyesi</h3>
+                <div class="bulusma-icerik">
+                    <p>Geri dönüşümlü malzemelerden kümes yapımı.</p>
+                    <div class="katilan">Katılan: Eyüp KAHRAMAN</div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Gelecek Buluşmalar</h2>
+        <p>Önümüzdeki günlerde "Meyve Ağaçlarında Budama Teknikleri", "Arıcılığa Giriş", "Hasat Nasıl Yaıpılır?" ve "Tıbbi Aromatik Bitkiler" konularını ele alacağız. </p>
+    </div>
+    
+    <!-- MODAL PENCERE -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" class="modal-image" src="" alt="Etkinlik Fotoğrafı">
+            <h2 id="modalTitle" class="modal-title"></h2>
+            <p id="modalDescription"></p>
+            <p id="modalParticipant" class="katilan"></p>
+        </div>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer>
+        <p>📢 Proje Sloganı: <em>"Atadan öğren, toruna aktar… Tohum yeşersin, gelecek şenlensin!"</em></p>
+        <p>© 2025 Kuleönü Ortaokulu - Tüm Hakları Saklıdır</p>
+    </footer>
+
+    <script>
+        // Modal açma fonksiyonu
+        function openModal(title, imageUrl, description, participant) {
+            const modal = document.getElementById('myModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const modalParticipant = document.getElementById('modalParticipant');
+            
+            modalImage.src = imageUrl;
+            modalImage.alt = title;
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            modalParticipant.textContent = "Katılan: " + participant;
+            
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden"; // Sayfa kaydırmayı engelle
+        }
+        
+        // Modal kapatma fonksiyonu
+        function closeModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Sayfa kaydırmayı geri aç
+        }
+        
+        // Modal dışına tıklandığında kapat
+        window.onclick = function(event) {
+            const modal = document.getElementById('myModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        
+        // ESC tuşuna basıldığında modalı kapat
+        document.onkeydown = function(evt) {
+            evt = evt || window.event;
+            if (evt.key === "Escape") {
+                closeModal();
+            }
+        };
+    </script>
+</body>
+</html>

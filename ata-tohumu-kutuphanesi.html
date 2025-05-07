@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ata Tohumu Kütüphanesi | Kuleönü Ortaokulu</title>
+    <style>
+        :root {
+            --yesil: #2a5a1a;
+            --acik-yesil: #4c9a2a;
+            --sari: #e6b422;
+            --bej: #f9f7f0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bej);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* NAVİGASYON */
+        nav {
+            background-color: var(--yesil);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        nav li {
+            margin: 0 15px;
+            position: relative;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        nav a:hover {
+            background-color: var(--acik-yesil);
+        }
+        
+        /* İÇERİK STİLLERİ */
+        .header-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 30px;
+        }
+        .content-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .content-section h2 {
+            color: var(--yesil);
+            border-bottom: 2px solid var(--acik-yesil);
+            padding-bottom: 10px;
+        }
+        
+        /* TOHUM GALERİSİ */
+        .tohum-galerisi {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px 0;
+        }
+        .tohum-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            height: 200px;
+        }
+        .tohum-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .tohum-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .tohum-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* MODAL (BÜYÜTÜLMÜŞ GÖRSELLER İÇİN) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            overflow: auto;
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: var(--yesil);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-image {
+                height: 250px;
+            }
+            .tohum-galerisi {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVİGASYON -->
+    <nav>
+        <ul>
+            <li><a href="index.html#ana-sayfa">Ana Sayfa</a></li>
+            <li><a href="index.html#projeler">Projelerimiz</a></li>
+            <li><a href="index.html#galeri">Galeri</a></li>
+            <li><a href="index.html#iletisim">İletişim</a></li>
+        </ul>
+    </nav>
+    
+    <!-- BAŞLIK RESMİ -->
+    <img src="images/kutuphane-genel.jpg" alt="Ata Tohumu Kütüphanesi Genel Görünüm" class="header-image">
+    
+    <!-- İÇERİK BÖLÜMÜ -->
+    <div class="content-section">
+        <h1 style="color: var(--yesil); text-align: center;">Ata Tohumu Kütüphanesi</h1>
+        
+        <h2>Proje Hakkında</h2>
+        <p>Ata Tohumu Kütüphanesi, nesiller boyu aktarılan yerel tohum çeşitlerimizi korumak ve gelecek nesillere aktarmak amacıyla kurulmuştur. Projemizde 30'dan fazla yerel tohum çeşidini kayıt altına aldık.</p>
+        
+        <h2>Tohum Çeşitlerimiz</h2>
+        <p>Kütüphanemizde bulunan bazı tohum çeşitleri:</p>
+        <ul>
+            <li>Yerel Domates Çeşitleri (5 farklı tür)</li>
+            <li>Bal Kabağı</li>
+            <li>Kara Buğday</li>
+            <li>Mor Havuç</li>
+            <li>Anadolu Karpuzu</li>
+            <li>Yerli Biber Çeşitleri (3 farklı tür)</li>
+            <li>Siyez Buğdayı</li>
+            <li>Kara Lahana</li>
+        </ul>
+        
+        <h2>Tohum Takas Etkinlikleri</h2>
+        <p>Her yıl düzenlediğimiz tohum takas şenlikleriyle, çiftçilerimizin ve vatandaşlarımızın kendi tohumlarını paylaşmalarını teşvik ediyoruz.</p>
+        
+        <h2>Tohum Kataloğu</h2>
+        <p>Kütüphanemizde bulunan tohumların tam listesini ve özelliklerini aşağıdaki galeriden inceleyebilirsiniz:</p>
+        
+        <!-- TOHUM GALERİSİ -->
+        <div class="tohum-galerisi" id="tohumGalerisi">
+            <!-- 30 adet tohum görseli -->
+            <div class="tohum-item">
+                <img src="images/t1.jpg" alt="Siyez Buğdayı" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t2.jpg" alt="Tohum 2" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t3.jpg" alt="Tohum 3" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t4.jpg" alt="Tohum 4" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t5.jpg" alt="Tohum 5" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t6.jpg" alt="Tohum 6" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t7.jpg" alt="Tohum 7" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t8.jpg" alt="Tohum 8" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t9.jpg" alt="Tohum 9" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t10.jpg" alt="Tohum 10" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t11.jpg" alt="Tohum 11" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t12.jpg" alt="Tohum 12" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t13.jpg" alt="Tohum 13" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t14.jpg" alt="Tohum 14" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t15.jpg" alt="Tohum 15" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t16.jpg" alt="Tohum 16" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t17.jpg" alt="Tohum 17" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t18.jpg" alt="Tohum 18" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t19.jpg" alt="Tohum 19" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t20.jpg" alt="Tohum 20" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t21.jpg" alt="Tohum 21" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t22.jpg" alt="Tohum 22" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t23.jpg" alt="Tohum 23" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t24.jpg" alt="Tohum 24" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t25.jpg" alt="Tohum 25" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t26.jpg" alt="Tohum 26" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t27.jpg" alt="Tohum 27" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t28.jpg" alt="Tohum 28" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t29.jpg" alt="Tohum 29" onclick="openModal(this)">
+            </div>
+            <div class="tohum-item">
+                <img src="images/t30.jpg" alt="Tohum 30" onclick="openModal(this)">
+            </div>
+        </div>
+    </div>
+    
+    <!-- MODAL (BÜYÜTÜLMÜŞ GÖRSELLER İÇİN) -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+    
+    <!-- FOOTER -->
+    <footer>
+        <p>📢 Proje Sloganı: <em>"Atadan öğren, toruna aktar… Tohum yeşersin, gelecek şenlensin!"</em></p>
+        <p>© 2025 Kuleönü Ortaokulu - Tüm Hakları Saklıdır</p>
+    </footer>
+    
+    <script>
+        // Modal fonksiyonları
+        function openModal(img) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("modalImage");
+            modal.style.display = "block";
+            modalImg.src = img.src;
+        }
+        
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+        
+        // ESC tuşuna basınca modalı kapat
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+        
+        // Modal dışına tıklayınca kapat
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
